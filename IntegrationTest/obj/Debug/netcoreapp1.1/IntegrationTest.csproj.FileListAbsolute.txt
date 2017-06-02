@@ -1,0 +1,15 @@
+C:\Desarrollo\github\vue-webapi\IntegrationTest\bin\Debug\netcoreapp1.1\IntegrationTest.deps.json
+C:\Desarrollo\github\vue-webapi\IntegrationTest\bin\Debug\netcoreapp1.1\IntegrationTest.dll
+C:\Desarrollo\github\vue-webapi\IntegrationTest\bin\Debug\netcoreapp1.1\IntegrationTest.pdb
+C:\Desarrollo\github\vue-webapi\IntegrationTest\bin\Debug\netcoreapp1.1\VueWebApi.dll
+C:\Desarrollo\github\vue-webapi\IntegrationTest\bin\Debug\netcoreapp1.1\VueWebApi.pdb
+C:\Desarrollo\github\vue-webapi\IntegrationTest\obj\Debug\netcoreapp1.1\IntegrationTest.csprojResolveAssemblyReference.cache
+C:\Desarrollo\github\vue-webapi\IntegrationTest\obj\Debug\netcoreapp1.1\IntegrationTest.AssemblyInfo.cs
+C:\Desarrollo\github\vue-webapi\IntegrationTest\obj\Debug\netcoreapp1.1\IntegrationTest.dll
+C:\Desarrollo\github\vue-webapi\IntegrationTest\obj\Debug\netcoreapp1.1\IntegrationTest.pdb
+C:\Desarrollo\github\vue-webapi\IntegrationTest\bin\Debug\netcoreapp1.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Desarrollo\github\vue-webapi\IntegrationTest\bin\Debug\netcoreapp1.1\xunit.runner.utility.netstandard15.dll
+C:\Desarrollo\github\vue-webapi\IntegrationTest\bin\Debug\netcoreapp1.1\xunit.runner.reporters.netstandard15.dll
+C:\Desarrollo\github\vue-webapi\IntegrationTest\bin\Debug\netcoreapp1.1\IntegrationTest.runtimeconfig.json
+C:\Desarrollo\github\vue-webapi\IntegrationTest\bin\Debug\netcoreapp1.1\IntegrationTest.runtimeconfig.dev.json
+C:\Desarrollo\github\vue-webapi\IntegrationTest\bin\Debug\netcoreapp1.1\appsettings.json

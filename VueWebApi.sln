@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VueWebApi", "VueWebApi\VueWebApi.csproj", "{19EAAE62-993A-469A-98DA-C816BBE9D386}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationTest", "IntegrationTest\IntegrationTest.csproj", "{A573E085-A9D6-4169-99E5-21408206E873}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{19EAAE62-993A-469A-98DA-C816BBE9D386}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19EAAE62-993A-469A-98DA-C816BBE9D386}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19EAAE62-993A-469A-98DA-C816BBE9D386}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19EAAE62-993A-469A-98DA-C816BBE9D386}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A573E085-A9D6-4169-99E5-21408206E873}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A573E085-A9D6-4169-99E5-21408206E873}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A573E085-A9D6-4169-99E5-21408206E873}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A573E085-A9D6-4169-99E5-21408206E873}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

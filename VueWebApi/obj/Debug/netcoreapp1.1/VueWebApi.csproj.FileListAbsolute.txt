@@ -1,0 +1,9 @@
+C:\Desarrollo\github\vue-webapi\VueWebApi\bin\Debug\netcoreapp1.1\VueWebApi.deps.json
+C:\Desarrollo\github\vue-webapi\VueWebApi\bin\Debug\netcoreapp1.1\VueWebApi.runtimeconfig.json
+C:\Desarrollo\github\vue-webapi\VueWebApi\bin\Debug\netcoreapp1.1\VueWebApi.runtimeconfig.dev.json
+C:\Desarrollo\github\vue-webapi\VueWebApi\bin\Debug\netcoreapp1.1\VueWebApi.dll
+C:\Desarrollo\github\vue-webapi\VueWebApi\obj\Debug\netcoreapp1.1\VueWebApi.AssemblyInfo.cs
+C:\Desarrollo\github\vue-webapi\VueWebApi\bin\Debug\netcoreapp1.1\VueWebApi.pdb
+C:\Desarrollo\github\vue-webapi\VueWebApi\obj\Debug\netcoreapp1.1\VueWebApi.dll
+C:\Desarrollo\github\vue-webapi\VueWebApi\obj\Debug\netcoreapp1.1\VueWebApi.pdb
+C:\Desarrollo\github\vue-webapi\VueWebApi\obj\Debug\netcoreapp1.1\VueWebApi.csprojResolveAssemblyReference.cache
