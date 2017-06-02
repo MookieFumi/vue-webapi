@@ -1,9 +1,8 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using System;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
-using System;
-using System.Net.Http;
 
-namespace IntegrationTest
+namespace IntegrationTest.Infrastructure
 {
     public class TestFixture<TStartup> : IDisposable where TStartup : class
     {

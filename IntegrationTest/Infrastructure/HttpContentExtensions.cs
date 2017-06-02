@@ -1,8 +1,8 @@
-﻿using Newtonsoft.Json;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
-namespace IntegrationTest
+namespace IntegrationTest.Infrastructure
 {
     public static class HttpContentExtensions
     {

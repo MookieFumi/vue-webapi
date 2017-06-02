@@ -2,23 +2,18 @@
 using System.Threading.Tasks;
 using FluentAssertions;
 using IntegrationTest.Infrastructure;
-using Microsoft.AspNetCore.TestHost;
+using VueWebApi;
 using VueWebApi.ViewModels;
 using Xunit;
 
-namespace IntegrationTest.Hotels
+namespace IntegrationTest.Controllers.Hotels
 {
-    public class UpdateHotel : IClassFixture<TestFixture<VueWebApi.Startup>>
+    public class CreateHotel : TestBase
     {
-        private TestServer Server { get; }
-
-        public UpdateHotel(TestFixture<VueWebApi.Startup> fixture)
-        {
-            Server = fixture.Server;
-        }
+        public CreateHotel(TestFixture<Startup> fixture) : base(fixture) { }
 
         [Fact]
-        public async Task Can_Update_Hotel()
+        public async Task Can_Create_Hotel()
         {
             // Arrange
             var model = new HotelViewModel
@@ -28,17 +23,17 @@ namespace IntegrationTest.Hotels
             };
 
             // Act
-            const string url = "api/hotels/1";
+            const string url = "api/hotels";
             var response = await Server.CreateRequest(url)
                 .WithContent(model)
-                .SendAsync("PUT");
+                .PostAsync();
 
             // Assert
             response.StatusCode.Should().Be(HttpStatusCode.NoContent);
         }
 
         [Fact]
-        public async Task Can_Not_Update_Hotel_Without_Name()
+        public async Task Can_Not_Create_Hotel_Without_Name()
         {
             // Arrange
             var model = new HotelViewModel
@@ -47,17 +42,17 @@ namespace IntegrationTest.Hotels
             };
 
             // Act
-            const string url = "api/hotels/1";
+            const string url = "api/hotels";
             var response = await Server.CreateRequest(url)
                 .WithContent(model)
-                .SendAsync("PUT");
+                .PostAsync();
 
             // Assert
             response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
         }
 
         [Fact]
-        public async Task Can_Not_Update_Hotel_Without_City()
+        public async Task Can_Not_Create_Hotel_Without_City()
         {
             // Arrange
             var model = new HotelViewModel
@@ -66,17 +61,17 @@ namespace IntegrationTest.Hotels
             };
 
             // Act
-            const string url = "api/hotels/1";
+            const string url = "api/hotels";
             var response = await Server.CreateRequest(url)
                 .WithContent(model)
-                .SendAsync("PUT");
+                .PostAsync();
 
             // Assert
             response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
         }
 
         [Fact]
-        public async Task Can_Not_Update_Hotel_With_Name_Max_Length()
+        public async Task Can_Not_Create_Hotel_With_Name_Max_Length()
         {
             // Arrange
             var model = new HotelViewModel
@@ -86,17 +81,17 @@ namespace IntegrationTest.Hotels
             };
 
             // Act
-            const string url = "api/hotels/1";
+            const string url = "api/hotels";
             var response = await Server.CreateRequest(url)
                 .WithContent(model)
-                .SendAsync("PUT");
+                .PostAsync();
 
             // Assert
             response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
         }
 
         [Fact]
-        public async Task Can_Not_Update_Hotel_With_City_Max_Length()
+        public async Task Can_Not_Create_Hotel_With_City_Max_Length()
         {
             // Arrange
             var model = new HotelViewModel
@@ -106,38 +101,18 @@ namespace IntegrationTest.Hotels
             };
 
             // Act
-            const string url = "api/hotels/1";
-            var response = await Server.CreateRequest(url)
-                .WithContent(model)
-                .SendAsync("PUT");
-
-            // Assert
-            response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-        }
-
-        [Fact]
-        public async Task Can_Not_Update_Not_Exist_Hotel()
-        {
-            // Arrange
-            var model = new HotelViewModel
-            {
-                Name = Utils.RandomString(256),
-                City = "Brihuega"
-            };
-
-            // Act
-            var url = $"api/hotels/{int.MaxValue}";
-
+            const string url = "api/hotels";
             var response = await Server.CreateRequest(url)
                 .WithContent(model)
                 .PostAsync();
 
             // Assert
-            response.StatusCode.Should().Be(HttpStatusCode.NotFound);
+            response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
         }
 
+
         [Fact]
-        public async Task Can_Not_Update_Hotel_With_Duplicate_Name()
+        public async Task Can_Not_Create_Hotel_With_Duplicate_Name()
         {
             // Arrange
             var model = new HotelViewModel
@@ -153,11 +128,9 @@ namespace IntegrationTest.Hotels
                 .WithContent(model)
                 .PostAsync();
 
-            const string url2 = "api/hotels/1";
-
-            var response = await Server.CreateRequest(url2)
+            var response = await Server.CreateRequest(url)
                 .WithContent(model)
-                .SendAsync("PUT");
+                .PostAsync();
 
             // Assert
             response.StatusCode.Should().Be(HttpStatusCode.Conflict);

@@ -1,141 +1,140 @@
-﻿using FluentAssertions;
-using IntegrationTest.Infrastructure;
-using Microsoft.AspNetCore.TestHost;
-using System.Net;
+﻿using System.Net;
 using System.Threading.Tasks;
+using FluentAssertions;
+using IntegrationTest.Infrastructure;
+using VueWebApi;
 using VueWebApi.ViewModels;
 using Xunit;
 
-namespace IntegrationTest.Hotels
+namespace IntegrationTest.Controllers.Rooms
 {
-    public class CreateHotel : IClassFixture<TestFixture<VueWebApi.Startup>>
+    public class UpdateHotelRoom :TestBase
     {
-        private TestServer Server { get; }
-
-        public CreateHotel(TestFixture<VueWebApi.Startup> fixture)
-        {
-            Server = fixture.Server;
-        }
+        public UpdateHotelRoom(TestFixture<Startup> fixture) : base(fixture) { }
 
         [Fact]
-        public async Task Can_Create_Hotel()
+        public async Task Can_Update_Hotel_Room()
         {
             // Arrange
-            var model = new HotelViewModel
+            var model = new RoomViewModel()
             {
                 Name = Utils.RandomString(256),
-                City = "Brihuega"
+                Price = 30,
+                Vat = 21
             };
 
             // Act
-            const string url = "api/hotels";
+            const string url = "api/hotels/1/rooms/1";
             var response = await Server.CreateRequest(url)
                 .WithContent(model)
-                .PostAsync();
+                .SendAsync("PUT");
 
             // Assert
             response.StatusCode.Should().Be(HttpStatusCode.NoContent);
         }
 
         [Fact]
-        public async Task Can_Not_Create_Hotel_Without_Name()
+        public async Task Can_Not_Update_Hotel_Room_Without_Name()
         {
             // Arrange
-            var model = new HotelViewModel
+            var model = new RoomViewModel
             {
-                City = "Brihuega"
+                Price = 30,
+                Vat = 21
             };
 
             // Act
-            const string url = "api/hotels";
+            const string url = "api/hotels/1/rooms/1";
             var response = await Server.CreateRequest(url)
                 .WithContent(model)
-                .PostAsync();
+                .SendAsync("PUT");
 
             // Assert
             response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
         }
 
         [Fact]
-        public async Task Can_Not_Create_Hotel_Without_City()
+        public async Task Can_Not_Update_Hotel_Room_Without_Price()
         {
             // Arrange
-            var model = new HotelViewModel
+            var model = new RoomViewModel
             {
-                Name = Utils.RandomString(256)
+                Name = Utils.RandomString(256),
+                Vat = 21
             };
 
             // Act
-            const string url = "api/hotels";
+            const string url = "api/hotels/1/rooms/1";
             var response = await Server.CreateRequest(url)
                 .WithContent(model)
-                .PostAsync();
+                .SendAsync("PUT");
 
             // Assert
             response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
         }
 
         [Fact]
-        public async Task Can_Not_Create_Hotel_With_Name_Max_Length()
+        public async Task Can_Not_Update_Hotel_Room_Without_Vat()
         {
             // Arrange
-            var model = new HotelViewModel
+            var model = new RoomViewModel
+            {
+                Name = Utils.RandomString(256),
+                Price = 30
+            };
+
+            // Act
+            const string url = "api/hotels/1/rooms/1";
+            var response = await Server.CreateRequest(url)
+                .WithContent(model)
+                .SendAsync("PUT");
+
+            // Assert
+            response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+        }
+
+        [Fact]
+        public async Task Can_Not_Update_Hotel_Room_With_Name_Max_Length()
+        {
+            // Arrange
+            var model = new RoomViewModel
             {
                 Name = Utils.RandomString(257),
-                City = "Brihuega"
+                Price = 30,
+                Vat = 21
             };
 
             // Act
-            const string url = "api/hotels";
+            const string url = "api/hotels/1/rooms/1";
             var response = await Server.CreateRequest(url)
                 .WithContent(model)
-                .PostAsync();
+                .SendAsync("PUT");
 
             // Assert
             response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
         }
 
         [Fact]
-        public async Task Can_Not_Create_Hotel_With_City_Max_Length()
+        public async Task Can_Not_Update_Hotel_Room_With_Duplicate_Name()
         {
             // Arrange
-            var model = new HotelViewModel
+            var model = new RoomViewModel
             {
                 Name = Utils.RandomString(256),
-                City = Utils.RandomString(257)
+                Price = 30,
+                Vat = 21
             };
 
             // Act
-            const string url = "api/hotels";
-            var response = await Server.CreateRequest(url)
-                .WithContent(model)
-                .PostAsync();
-
-            // Assert
-            response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-        }
-
-
-        [Fact]
-        public async Task Can_Not_Create_Hotel_With_Duplicate_Name()
-        {
-            // Arrange
-            var model = new HotelViewModel
-            {
-                Name = Utils.RandomString(256),
-                City = "Brihuega"
-            };
-
-            // Act
-            const string url = "api/hotels";
-
+            const string url = "api/hotels/1/rooms";
             await Server.CreateRequest(url)
                 .WithContent(model)
                 .PostAsync();
 
-            var response = await Server.CreateRequest(url)
+            const string url2 = "api/hotels/1/rooms/1";
+            var response = await Server.CreateRequest(url2)
                 .WithContent(model)
-                .PostAsync();
+                .SendAsync("PUT");
 
             // Assert
             response.StatusCode.Should().Be(HttpStatusCode.Conflict);

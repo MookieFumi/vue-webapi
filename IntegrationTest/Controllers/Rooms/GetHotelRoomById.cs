@@ -1,20 +1,16 @@
 ﻿using System.Net;
 using System.Threading.Tasks;
 using FluentAssertions;
-using Microsoft.AspNetCore.TestHost;
+using IntegrationTest.Infrastructure;
+using VueWebApi;
 using VueWebApi.ViewModels;
 using Xunit;
 
-namespace IntegrationTest.Rooms
+namespace IntegrationTest.Controllers.Rooms
 {
-    public class GetHotelRoomById : IClassFixture<TestFixture<VueWebApi.Startup>>
+    public class GetHotelRoomById : TestBase
     {
-        private TestServer Server { get; }
-
-        public GetHotelRoomById(TestFixture<VueWebApi.Startup> fixture)
-        {
-            Server = fixture.Server;
-        }
+        public GetHotelRoomById(TestFixture<Startup> fixture) : base(fixture) { }
 
         [Fact]
         public async Task Can_Get_Hotel_Room_By_Id()
