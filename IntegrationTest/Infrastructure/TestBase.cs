@@ -3,11 +3,11 @@ using Xunit;
 
 namespace IntegrationTest.Infrastructure
 {
-    public class TestBase : IClassFixture<TestFixture<VueWebApi.Startup>>
+    public class TestBase : IClassFixture<TestFixture<Vuew.Startup>>
     {
         protected TestServer Server { get; }
 
-        public TestBase(TestFixture<VueWebApi.Startup> fixture)
+        public TestBase(TestFixture<Vuew.Startup> fixture)
         {
             Server = fixture.Server;
         }

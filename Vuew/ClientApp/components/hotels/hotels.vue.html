@@ -1,0 +1,28 @@
+<template>
+    <div>
+        <h1>Hotels</h1>
+
+        <p>This component demonstrates fetching data from the server.</p>
+
+        <table v-if="hotels.length" class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>City</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item in hotels">
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.city }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p v-else><em>Loading...</em></p>
+    </div>
+</template>
+
+<script src="./hotels.ts"></script>

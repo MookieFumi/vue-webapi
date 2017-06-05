@@ -2,8 +2,8 @@
 using System.Threading.Tasks;
 using FluentAssertions;
 using IntegrationTest.Infrastructure;
-using VueWebApi;
-using VueWebApi.ViewModels;
+using Vuew;
+using Vuew.ViewModels;
 using Xunit;
 
 namespace IntegrationTest.Controllers.Hotels

@@ -2,8 +2,8 @@
 using System.Threading.Tasks;
 using FluentAssertions;
 using IntegrationTest.Infrastructure;
-using VueWebApi;
-using VueWebApi.ViewModels;
+using Vuew;
+using Vuew.ViewModels;
 using Xunit;
 
 namespace IntegrationTest.Controllers.Hotels
@@ -125,7 +125,7 @@ namespace IntegrationTest.Controllers.Hotels
 
             var response = await Server.CreateRequest(url)
                 .WithContent(model)
-                .PostAsync();
+                .SendAsync("PUT");
 
             // Assert
             response.StatusCode.Should().Be(HttpStatusCode.NotFound);

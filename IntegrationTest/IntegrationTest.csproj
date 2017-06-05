@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\VueWebApi\VueWebApi.csproj" />
+    <ProjectReference Include="..\Vuew\Vuew.csproj" />
   </ItemGroup>
 
   <ItemGroup>
